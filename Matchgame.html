@@ -7,25 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Match Game</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./MatchGame_CSS /MatchGame.css" />
-  
+
 
 </head>
 
 <body>
     <div class="side-menu">
         <h1> Memory Game</h1>
-        <button id="newGame">New Game</button>
         <label>UserName:</label>
+        <br>
         <input type="text" class="player"></label>
         <br>
-        <h2 class="result"></h2>
+        <div class="difficulty">
+            <label>Please Choose Level of Difficulty:</label>
+            <br>
+            <button id="Easy">Easy</button>
+            <br>
+            <button id="Medium">Medium</button>
+            <br>
+            <button id="Hard">Hard</button>
+            <br>
+        </div>
+
     </div>
     <div id="game"></div>
-    <div id="winner" visibility:hidden;>You Win!</div>
+    <div id="winner" style=" visibility:hidden;"><img src="./Images/slimetimelive.jpg" alt="win"> You Win!</div>
 
-    <script src="./js/lib/jquery-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="MatchGame_JS/MatchGame.js"></script>
 
 </body>

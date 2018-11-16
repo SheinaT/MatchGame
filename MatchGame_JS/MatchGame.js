@@ -1,11 +1,38 @@
-var game = document.getElementById("game");
+document.addEventListener("DOMContentLoaded", init);
 var firstCard = null;//havent turned over first card//
-var secondCard=null;
-var counter=0;
-grid(4, 3);
-function grid(arr1, arr2) {
+var secondCard = null;
+var counter = 0;
+
+function init() {
+    var buttons = document.querySelectorAll(".difficulty button");
+    console.log("click working");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", setup);
+    }
+}
+
+function setup(e) {
+    var rows;///easy is not setting up///
+    var columns;
+    var difficulty = e.target.id; ///for each level of difficulty
+    if (difficulty == "Easy") {
+        rows = 3;
+        rows = 4;
+    }
+    else if (difficulty == "Medium") {
+        rows = 4;
+        columns = 5;
+    }
+    else {
+        rows = 4;
+        columns = 6;
+    }
+    grid(rows, columns);
+}
+
+function grid(rows, columns) {
     var cardArray = [];
-    for (var i = 0; i < 12 / 2; i++) {
+    for (var i = 0; i < (rows * columns) / 2; i++) {
         cardArray.push(i);
         cardArray.push(i);
     }
@@ -17,8 +44,8 @@ function grid(arr1, arr2) {
         cardArray.splice(r, 1);///how many items to get rid of//
     }
 
-    for (var i = 0; i < arr1; i++) {
-        for (var j = 0; j < arr2; j++) {
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < columns; j++) {
             createCard(shuffleCards.pop(), i, j);
             console.log("check");///remove///
 
@@ -28,7 +55,6 @@ function grid(arr1, arr2) {
     }
 
 }
-
 
 function createCard(cardNum) {
     var card = document.createElement("img");
@@ -43,11 +69,12 @@ function createCard(cardNum) {
 
 function cardClicked(e) {
     var card = e.target;
+
     if (firstCard == null) {
         card.src = "Images/card" + card.num + ".jpg";
         firstCard = card;
         counter++;
-        if(match>= 12/2){
+        if (counter >= (rows * columns) / 2) {
             gameWinner();
         }
     } else if (secondCard == null) {
@@ -71,9 +98,16 @@ function checkIfMatch() {
     secondCard = null;
 }
 
-function gameWinner(){
-    document.getElementById("winner").style.visibility= "visible";
-}
+//function gameWinner() {
+ //   document.getElementById("newGame").addEventListener("click", init);
+ //   console.log("check");
+//}
+
+
+
+
+
+
 
 
 

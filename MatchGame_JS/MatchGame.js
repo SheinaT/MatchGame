@@ -124,6 +124,7 @@ function checkIfMatch() {
 }
 
 function gameWinner() {
+    document.getElementById("overlay").style.display="block";
     document.getElementById("winner").className = "winner-revealed";
     document.querySelector("#winner span").textContent= incorrectGuesses;
 

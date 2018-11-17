@@ -1,10 +1,12 @@
 body{
-    background-image: url("/Users/sheinatolmas/Documents/dev/website_building/MatchGame/90s_again.jpg");
+    background-image: url("/Users/sheinatolmas/Documents/dev/website_building/MatchGame/Images/90s_again.jpg");
     background:cover;
     background-repeat:no-repeat;
     max-width:100%;
 
+
 }
+
 #overlay {
     position: fixed;
     top: 0;
@@ -44,10 +46,12 @@ h1{
     top:0;
     left:20%;
     color: rgb(87, 122, 76);
-    z-index:1;
     background:white;
     
 }
+
+
+
 h2{
     font-family:'Indie Flower', cursive;
     font-size:50px;
@@ -62,12 +66,12 @@ h2{
 }
  
 .difficulty button{
+    display:flex;
     font-family:'Indie Flower', cursive;
+    max-width:100%;
     position:relative;
-    left:50px;
     font-size:50px;
     margin:10px;
-    z-index:1;
     border: 10px solid black;
 }
 button:hover{
@@ -76,12 +80,29 @@ button:hover{
 
 
 #game{
+    display:block;
     top: 0;
     right:0;
     bottom:0;
     width:70%;
     text-align:center;
-    position:fixed;
+    position:absolute;
+}
+
+@media screen and(max-width:600px){
+    #game{
+        top:50px;
+
+
+    }
+
+}
+@media screen and(max-width:600px){
+    nav nav-pills nav-stacked{
+        margin-top:100px;
+
+    }
+
 }
 
 #game img{
@@ -96,18 +117,7 @@ button:hover{
     transform:scale(0);
 
 }
-/*check responsiveness*//
-@media screen and (max-width:600px){
-    .modal h1{
-        font-size:16px;
-    }
-}
-@media screen and(min-width:700px){
-    .modal h1{
-        font-size:50px;
-    }
 
-}
 
 #winner{
     display:none;
@@ -130,6 +140,7 @@ button:hover{
 
 #winner button{
     font-size:50px;
+    border:10px solid black;
 }
 
 

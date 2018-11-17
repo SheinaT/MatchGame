@@ -2,7 +2,7 @@ var firstCard = null;//havent turned over first card//
 var secondCard = null;
 var incorrectGuesses=0;
 var counter = 0;
-var rows;///easy is not setting up///
+var rows;
 var columns;
 $(document).ready(function(){
     init();
@@ -11,14 +11,10 @@ $(document).ready(function(){
 
 document.addEventListener("DOMContentLoaded", init);
 function init() {
+
     document.getElementById("Start").addEventListener("click",overlayOff);
     function overlayOff(){
         document.getElementById("overlay").style.display= "none";
-    }
-    document.getElementById("myAudio").addEventListener("load", playMusic);
-
-    function playMusic(){
-        x.play;
     }
 
     var buttons = document.querySelectorAll(".difficulty button");
@@ -74,7 +70,7 @@ function grid(rows, columns) {
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < columns; j++) {
             createCard(shuffleCards.pop(), rows, columns);
-            console.log("check");///remove///
+            console.log("check");
 
 
         }

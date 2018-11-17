@@ -11,11 +11,14 @@ $(document).ready(function(){
 
 document.addEventListener("DOMContentLoaded", init);
 function init() {
-    document.getElementById("Easy").addEventListener("click",overlayOff);
-    document.getElementById("Medium").addEventListener("click",overlayOff);
-    document.getElementById("Hard").addEventListener("click",overlayOff);
+    document.getElementById("Start").addEventListener("click",overlayOff);
     function overlayOff(){
         document.getElementById("overlay").style.display= "none";
+    }
+    document.getElementById("myAudio").addEventListener("load", playMusic);
+
+    function playMusic(){
+        x.play;
     }
 
     var buttons = document.querySelectorAll(".difficulty button");
@@ -124,13 +127,8 @@ function checkIfMatch() {
 }
 
 function gameWinner() {
-    document.getElementById("overlay").style.display="block";
     document.getElementById("winner").className = "winner-revealed";
-    document.querySelector("#winner span").textContent= incorrectGuesses;
-
-
-    // winBoard= "You Win!"
-    //with new button game and you win message
+    document.querySelector("#winner span").textContent= "You have "+ incorrectGuesses + " incorrect guesses";
 
 
     console.log("check");

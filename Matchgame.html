@@ -15,22 +15,30 @@
 </head>
 
 <body>
-    <div id="overlay" ></div>
-        </div>
-        
-    <div class="side-menu">
-        <h1> Memory Game</h1>
-        <p>Please Select Level of<br> Difficulty to Begin:</p>
-        <div class="difficulty">
-            <div class="nav nav-pills nav-stacked">
-                <br>
-                <button role="presentation" id="Easy">Easy</button>
-                <br>
-                <button role="presentation" id="Medium">Medium</button>
-                <br>
-                <button role="presentation" id="Hard">Hard</button>
+    
+    <div id="overlay">
+        <div class="modal">
+            <div class="modal-title">
+                <h1>Memory Game</h1>
             </div>
+            <div class="modal-content">Pick a Card and Find it's Match! Select Level of Difficulty:</div>
+            <br>
+            <button id="Start">Start</button>
         </div>
+    </div>
+
+
+    <div class="difficulty">
+        <h2>Difficulty Level</h2>
+        <div class="nav nav-pills nav-stacked">
+            <br>
+            <button role="presentation" id="Easy">Easy</button>
+            <br>
+            <button role="presentation" id="Medium">Medium</button>
+            <br>
+            <button role="presentation" id="Hard">Hard</button>
+        </div>
+    </div>
 
     </div>
     <div id="game"></div>
@@ -38,6 +46,7 @@
         <p>Incorrect Guesses: <span></span></p>
         <button>New Game</button>
     </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

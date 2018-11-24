@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 document.addEventListener("DOMContentLoaded", init);
 function init() {
-
+    window.addEventListener("resize", handleResize);
     document.getElementById("Start").addEventListener("click",overlayOff);
     function overlayOff(){
         document.getElementById("overlay").style.display= "none";
@@ -47,7 +47,7 @@ function setup(e) {
     }
     grid(rows, columns);
     firstCard = null;//for replay//
-    secondCard = null; //for replay//
+    secondCard = null; 
     counter = (rows * columns) / 2;
     document.getElementById("winner").className = "";
 }
@@ -89,6 +89,15 @@ function createCard(cardNum, rows, columns) {
     game.appendChild(card);
 }
 
+
+function handleResize(){
+    document.querySelectorAll("#game img").forEach(function(img){
+        img.style.maxWidth= 100/columns + "%";
+        img.style.maxHeight=95/rows + "vh";
+    });
+
+}
+
 function cardClicked(e) {
     var card = e.target;
 
@@ -97,6 +106,9 @@ function cardClicked(e) {
         firstCard = card;
 
     } else if (secondCard == null) {
+        if(firstCard===card){
+            return;
+        }
         card.src = "Images/card" + card.num + ".jpg";
         secondCard = card;
         setTimeout(checkIfMatch, 1000);
@@ -123,8 +135,14 @@ function checkIfMatch() {
 }
 
 function gameWinner() {
-    document.getElementById("winner").className = "winner-revealed";
-    document.querySelector("#winner span").textContent= "You have "+ incorrectGuesses + " incorrect guesses";
+    document.getElementById("overlay").style.display="block";
+   document.querySelector(".modal-content").textContent="Winner! You had "+ incorrectGuesses + " incorrect guesses";
+ 
+   
+
+
+
+
 
 
     console.log("check");
